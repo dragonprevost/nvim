@@ -16,7 +16,7 @@ return {
               console = "integratedTerminal",
             },
             args = { "--log-level", "DEBUG", "--quiet" },
-            runner = "unittest",
+            runner = "pytest",
           })
         }
       })

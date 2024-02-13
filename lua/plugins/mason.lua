@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       "pyright",
+      "pytest",
       "debugpy",
       "black",
       "ruff",

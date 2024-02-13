@@ -17,9 +17,16 @@ return {
             },
             args = { "--log-level", "DEBUG", "--quiet" },
             runner = "pytest",
+            python = vim.fn.getcwd() .. "/venv/bin/python"
           })
         }
       })
+      local neotest = require("neotest")
+
+      vim.keymap.set("n", "<Leader>tm", neotest.run.run)
+      vim.keymap.set("n", "<Leader>tf", function () neotest.run.run(vim.fn.expand('%')) end)
+      vim.keymap.set("n", "<Leader>td", function () neotest.run.run({strategy = "dap"}) end)
+      vim.keymap.set("n", "<Leader>ts", function () neotest.summary.open() end)
     end
   },
 }

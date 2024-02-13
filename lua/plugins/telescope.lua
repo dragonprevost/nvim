@@ -13,6 +13,16 @@ return {
             require("telescope.themes").get_dropdown({}),
           },
         },
+        defaults = {
+          file_ignore_patterns = {
+            "venv/*",
+            "%_%_pycache%_%_/*",
+            "node%_modules/*",
+            "node_modules/*",
+            "terraform/*",
+            "product-platform-frontend/*",
+          }
+        }
       })
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>ff", builtin.find_files, {})

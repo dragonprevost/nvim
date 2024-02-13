@@ -1,6 +1,15 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensured_installed = {
+        "python",
+        "lua",
+        "md",
+        "yaml",
+        "go",
+      }
+    },
     build = ":TSUpdate",
     config = function()
       local config = require("nvim-treesitter.configs")

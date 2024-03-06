@@ -10,6 +10,7 @@ return {
 			mason_lspconfig.setup({
 				ensure_installed = {
 					"pyright",
+					"pylsp",
 				},
 				auto_install = true,
 			})
@@ -21,16 +22,15 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				python = {
 					analysis = {
 						autoSearchPaths = true,
 						useLibraryCodeForTypes = true,
+						autoImportCompletions = true,
 					},
-					venvPath = vim.fn.getcwd() .. "/venv/",
-					pythonPath = vim.fn.getcwd() .. "/venv/bin/python"
+					pythonPath = vim.fn.getcwd() .. "/venv/bin/python3",
 				},
 			})
 
@@ -40,7 +40,16 @@ return {
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>gR", vim.lsp.util.rename, {})
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					local opts = { buffer = ev.buf }
+			    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				end,
+			})
 		end,
 	},
 }

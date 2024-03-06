@@ -3,7 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
-vim.cmd("set colorcolumn=80")
+vim.cmd("set colorcolumn=89")
 vim.g.mapleader = " "
 
 -- Navigate vim panes better

@@ -9,6 +9,7 @@ return {
 			local mason_lspconfig = require("mason-lspconfig")
 			mason_lspconfig.setup({
 				ensure_installed = {
+          "gopls",
 					"pyright",
 					"pylsp",
 				},
@@ -22,6 +23,7 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+      lspconfig.gopls.setup({})
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				python = {

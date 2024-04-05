@@ -21,6 +21,7 @@ return {
 
 			cmp.setup({
 				sources = cmp.config.sources({
+					{ name = "gopls" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },

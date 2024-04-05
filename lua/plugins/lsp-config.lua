@@ -48,6 +48,7 @@ return {
 				callback = function(ev)
 					local opts = { buffer = ev.buf }
 			    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			    vim.keymap.set("n", "<leader>mv", vim.lsp.util.rename)
 				end,
 			})
 		end,

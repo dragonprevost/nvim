@@ -7,7 +7,6 @@ return {
       "debugpy",
       "black",
       "ruff",
-      "mypy",
     }
   },
   lazy = false,

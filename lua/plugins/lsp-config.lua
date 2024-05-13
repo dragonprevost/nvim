@@ -39,12 +39,12 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-			vim.keymap.set("n", "<leader>d", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>m", vim.diagnostic.open_float)
-			--vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
 			vim.keymap.set("n", "<leader>gR", vim.lsp.util.rename, {})
-			-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),

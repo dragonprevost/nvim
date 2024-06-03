@@ -1,8 +1,5 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
-	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
@@ -16,11 +13,11 @@ return {
 		  "neovim/nvim-lspconfig",
     },
 		config = function()
-			local cmp = require("cmp")
+			local complete = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
-			cmp.setup({
-				sources = cmp.config.sources({
+			complete.setup({
+				sources = complete.config.sources({
 					{ name = "gopls" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
@@ -34,15 +31,15 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
+					completion = complete.config.window.bordered(),
+					documentation = complete.config.window.bordered(),
 				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+				mapping = complete.mapping.preset.insert({
+					["<C-b>"] = complete.mapping.scroll_docs(-4),
+					["<C-f>"] = complete.mapping.scroll_docs(4),
+					["<C-Space>"] = complete.mapping.complete(),
+					["<C-e>"] = complete.mapping.abort(),
+					["<CR>"] = complete.mapping.confirm({ select = true }),
 				}),
 			})
 		end,

@@ -18,9 +18,9 @@ return {
             ".git",
           },
           hide_by_pattern = { -- uses glob style patterns
-            "*/venv",
-            "*/.mypy_cache",
-            "*/.pytest_cache",
+            "**/venv",
+            "**/.mypy_cache",
+            "**/.pytest_cache",
           },
         },
       },

@@ -15,11 +15,11 @@ return {
         },
         defaults = {
           file_ignore_patterns = {
-            "venv/*",
+            "**/venv/*",
             "%_%_pycache%_%_/*",
-            "node%_modules/*",
-            "node_modules/*",
-            "product-platform-frontend/*",
+            "*/node%_modules/*",
+            "*/node_modules/*",
+            "services/product-platform-frontend/*",
           }
         }
       })

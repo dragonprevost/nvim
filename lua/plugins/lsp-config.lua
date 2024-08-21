@@ -12,6 +12,7 @@ return {
 					"gopls",
 					"pyright",
 					"pylsp",
+          "tsserver",
 				},
 				auto_install = true,
 			})
@@ -24,6 +25,10 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			lspconfig.gopls.setup({})
+			lspconfig.tsserver.setup({})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				python = {
@@ -34,10 +39,6 @@ return {
 					},
 					pythonPath = vim.fn.getcwd() .. "/venv/bin/python3",
 				},
-			})
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
 			})
 			vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})

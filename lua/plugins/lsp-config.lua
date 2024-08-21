@@ -40,6 +40,10 @@ return {
 					pythonPath = vim.fn.getcwd() .. "/venv/bin/python3",
 				},
 			})
+      lspconfig.tsserver.setup {}
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
 			vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "<leader>m", vim.diagnostic.open_float)

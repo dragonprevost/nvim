@@ -2,6 +2,7 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "mfussenegger/nvim-dap-python",
+    "leoluz/nvim-dap-go",
     "rcarriga/nvim-dap-ui",
     "tpope/vim-fugitive",
   },
@@ -13,6 +14,21 @@ return {
     )
     local dap, dapui = require("dap"), require("dapui")
     require("dap-python").test_runner = "pytest"
+    require("dap-go").setup {
+      dap_configurations = {
+        {
+          type = "go",
+          name = "Attach remote",
+          mode = "remote",
+          request = "attach",
+        },
+      },
+      delve = {
+        path = "dlv",
+        initialize_timeout_sec = 20,
+        port = "${port}",
+      }
+    }
 
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
